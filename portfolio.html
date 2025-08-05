@@ -8,12 +8,12 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:700|Roboto:400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --blue: #5a91bf;
-            --violet: #7a9eb1;
-            --teal: #6bc0bf;
-            --pink: #b8d8ba;
-            --glass-bg: rgba(232, 240, 242, 0.25);
-            --glass-border: rgba(232, 240, 242, 0.45);
+            --black-dark: #121212;
+            --black-medium: #303030;
+            --black-light: #505050;
+            --gray-light: #B0B0B0;
+            --glass-bg: rgba(80, 80, 80, 0.20);
+            --glass-border: rgba(120, 120, 120, 0.40);
         }
 
         * {
@@ -24,8 +24,8 @@
             min-height: 100vh;
             margin: 0;
             font-family: 'Roboto', Arial, sans-serif;
-            background: linear-gradient(120deg, var(--teal), var(--blue) 70%, var(--violet));
-            color: #2e3b4e;
+            background: linear-gradient(135deg, var(--black-dark), var(--black-medium) 70%, var(--black-light));
+            color: var(--gray-light);
             overflow-x: hidden;
         }
 
@@ -33,8 +33,8 @@
             position: fixed;
             width: 100%;
             z-index: 100;
-            background: linear-gradient(90deg, var(--violet) 70%, var(--blue));
-            box-shadow: 0 3px 16px rgba(120, 144, 156, 0.15);
+            background: linear-gradient(90deg, var(--black-dark) 70%, var(--black-medium));
+            box-shadow: 0 3px 16px rgba(80, 80, 80, 0.1);
             padding: 0;
         }
 
@@ -52,11 +52,11 @@
             font-size: 1.7em;
             font-weight: 700;
             letter-spacing: 2px;
-            color: #d8e7e7;
+            color: var(--gray-light);
         }
 
         nav a {
-            color: #d8e7e7;
+            color: var(--gray-light);
             text-decoration: none;
             font-weight: 600;
             margin-left: 2em;
@@ -65,7 +65,7 @@
         }
 
         nav a:hover {
-            color: var(--teal);
+            color: var(--black-light);
         }
 
         main {
@@ -78,7 +78,7 @@
             background: var(--glass-bg);
             border: 1.5px solid var(--glass-border);
             border-radius: 1.5em;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.09);
+            box-shadow: 0 8px 32px 0 rgba(48, 48, 48, 0.09);
             padding: 2.5em;
             margin: 2em 0;
             backdrop-filter: blur(10px);
@@ -94,7 +94,7 @@
 
         h1 {
             font-size: 2.8em;
-            background: -webkit-linear-gradient(var(--teal), var(--violet));
+            background: -webkit-linear-gradient(var(--black-light), var(--gray-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -102,12 +102,12 @@
 
         h2 {
             font-size: 1.6em;
-            color: var(--teal);
+            color: var(--black-light);
         }
 
         .about-text {
             font-size: 1.1em;
-            color: #3c506c;
+            color: var(--black-light);
             line-height: 1.7;
         }
 
@@ -121,7 +121,7 @@
             background: var(--glass-bg);
             border: 1.5px solid var(--glass-border);
             border-radius: 1.2em;
-            box-shadow: 0 4px 20px 0 rgba(106, 149, 170, 0.18);
+            box-shadow: 0 4px 20px 0 rgba(48, 48, 48, 0.13);
             padding: 2em 1.2em 1.7em 1.5em;
             transition: transform 0.27s, box-shadow 0.27s;
             position: relative;
@@ -131,17 +131,18 @@
 
         .card:hover {
             transform: translateY(-12px) scale(1.045);
-            box-shadow: 0 16px 28px 0 rgba(106, 149, 170, 0.3);
+            box-shadow: 0 16px 24px 0 rgba(48, 48, 48, 0.22);
         }
 
         .card h3 {
-            color: var(--teal);
+            margin-top: 0;
+            color: var(--black-light);
             font-weight: 700;
             font-size: 1.1em;
         }
 
         .card p {
-            color: #4a6274;
+            color: var(--gray-light);
             min-height: 50px;
         }
 
@@ -149,18 +150,18 @@
             display: inline-block;
             margin-top: 1em;
             padding: 0.45em 1.3em;
-            background: linear-gradient(90deg, var(--blue), var(--teal));
-            color: #fff;
+            background: linear-gradient(90deg, var(--black-medium), var(--black-light));
+            color: var(--gray-light);
             text-decoration: none;
             border-radius: 2em;
             font-size: 1em;
             font-weight: 600;
-            box-shadow: 0 2px 12px 0 rgba(87, 154, 163, 0.14);
+            box-shadow: 0 2px 12px 0 rgba(80, 80, 80, 0.14);
             transition: background 0.22s;
         }
 
         .card a:hover {
-            background: linear-gradient(90deg, var(--teal), var(--violet));
+            background: linear-gradient(90deg, var(--black-light), var(--black-medium));
         }
 
         .contact-info {
@@ -175,21 +176,21 @@
             display: inline-flex;
             align-items: center;
             font-size: 1.1em;
-            color: var(--teal);
+            color: var(--black-light);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.22s;
         }
 
         .contact-info a:hover {
-            color: var(--violet);
+            color: var(--gray-light);
         }
 
         .contact-info i {
             font-style: normal;
             margin-right: 0.6em;
             font-size: 1.2em;
-            background: linear-gradient(var(--violet), var(--teal));
+            background: linear-gradient(var(--gray-light), var(--black-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -210,7 +211,7 @@
         footer {
             padding: 2em 1em 1em;
             text-align: center;
-            color: #b8c1c9;
+            color: var(--gray-light);
             background: none;
             font-size: 1.1em;
             opacity: 0.77;
