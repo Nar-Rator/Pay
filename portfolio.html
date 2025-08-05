@@ -4,112 +4,235 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Portfolio</title>
+    <title>Tyron P. Sicio Portfolio</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            color: #333;
+        /* Base Reset */
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
+        text body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2980b9, #6dd5fa, #ffffff);
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* Sticky Header */
         header {
-            background: #333;
+            background: rgba(33, 33, 33, 0.9);
             color: white;
-            padding: 1em 0;
+            padding: 1em 2em;
+            position: sticky;
+            top: 0;
+            font-size: 2em;
+            font-weight: 700;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+
+        header.scrolled {
+            background: #222;
             font-size: 1.8em;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         }
 
         main {
-            max-width: 900px;
-            margin: 2em auto;
+            max-width: 960px;
+            margin: 3em auto 5em;
             background: white;
-            padding: 2em;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 2.5em 3em;
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
         }
 
         section {
-            margin-bottom: 2em;
+            margin-bottom: 3em;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        section.reveal {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         h2 {
-            border-bottom: 2px solid #333;
+            border-bottom: 3px solid #2980b9;
             padding-bottom: 0.5em;
+            margin-bottom: 1em;
+            font-weight: 700;
+            color: #2980b9;
+            letter-spacing: 1px;
         }
 
+        /* About Me */
+        #about p {
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        /* Projects */
         .projects {
             display: flex;
             flex-wrap: wrap;
-            gap: 1em;
+            gap: 1.8em;
+            justify-content: center;
         }
 
         .project {
-            background: #eee;
-            padding: 1em;
-            border-radius: 5px;
+            background: #f0f8ff;
+            padding: 1.8em;
+            border-radius: 12px;
             flex: 1 1 45%;
-            box-sizing: border-box;
+            box-shadow: 0 10px 20px rgba(41, 128, 185, 0.15);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 16px 40px rgba(41, 128, 185, 0.3);
+        }
+
+        .project h3 {
+            margin-top: 0;
+            color: #2471a3;
+        }
+
+        .project p {
+            color: #555;
+            margin-bottom: 1.3em;
         }
 
         .project a {
-            color: #007acc;
+            display: inline-block;
+            padding: 0.5em 1.3em;
+            border-radius: 25px;
+            background: #2980b9;
+            color: white;
             text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 8px 15px rgba(41, 128, 185, 0.3);
+            transition: background-color 0.3s ease;
         }
 
+        .project a:hover {
+            background-color: #1a5276;
+        }
+
+        /* Contact */
+        #contact p {
+            font-size: 1.1em;
+            margin: 0.8em 0;
+        }
+
+        #contact a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        #contact a:hover {
+            color: #1a5276;
+            text-decoration: underline;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 1em 0;
-            background: #333;
+            padding: 1.5em 0;
+            background: #222;
             color: white;
-            margin-top: 3em;
+            font-size: 0.95em;
+            margin-top: 4em;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        @media (max-width: 600px) {
+        /* Responsive */
+        @media (max-width: 720px) {
             .projects {
                 flex-direction: column;
+                gap: 1.5em;
             }
 
             .project {
                 flex: 1 1 100%;
             }
+
+            main {
+                padding: 2em 1.5em;
+                margin: 2em auto 4em;
+            }
+        }
+
+        /* Button to top */
+        #toTopBtn {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 0.75em 1.1em;
+            border-radius: 50px;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(41, 128, 185, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10001;
+        }
+
+        #toTopBtn.show {
+            opacity: 1;
         }
     </style>
 </head>
 
 <body>
-
-    <header>
-        My Portfolio
+    text
+    <header id="pageHeader">
+        Tyron P. Sicio Portfolio
     </header>
 
     <main>
-        <section id="about">
+        <section id="about" class="reveal">
             <h2>About Me</h2>
-            <p>Hello! I'm Tyron P. Sicio, a web developer passionate about creating functional and beautiful websites.
-                Welcome to my portfolio!</p>
+            <p>Hello! I'm Tyron P. Sicio, a passionate web developer focused on creating beautiful and functional
+                websites. Welcome to my portfolio!</p>
         </section>
 
-        <section id="projects">
+        <section id="projects" class="reveal">
             <h2>Projects</h2>
             <div class="projects">
-                <div class="project">
+                <div class="project" tabindex="0"
+                    onclick="openProjectModal('Project One', 'Wala pa akong malalagay dito. Please wait.')"
+                    onkeypress="if(event.key === 'Enter') openProjectModal('Project One', 'Wala pa akong malalagay dito. Please wait.')">
                     <h3>Project One</h3>
                     <p>Wala pa akong malalagay dito wait ka muna.</p>
-                    <a href="#">View Project</a>
+                    <a href="#" onclick="event.stopPropagation(); alert('Project page coming soon!');">View Project</a>
                 </div>
-                <div class="project">
+                <div class="project" tabindex="0" onclick="openProjectModal('Project Two', 'wala pa ngng number 1 eh.')"
+                    onkeypress="if(event.key === 'Enter') openProjectModal('Project Two', 'wala pa ngng number 1 eh.')">
                     <h3>Project Two</h3>
                     <p>wala pa ngng number 1 eh.</p>
-                    <a href="#">View Project</a>
+                    <a href="#" onclick="event.stopPropagation(); alert('Project page coming soon!');">View Project</a>
                 </div>
-
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
+        <section id="contact" class="reveal">
+            <h2>Contact Me</h2>
             <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
             <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank"
                     rel="noopener noreferrer">linkedin.com/in/yourprofile</a></p>
@@ -120,6 +243,86 @@
         &copy; 2025 Tyron Sicio
     </footer>
 
+    <!-- Button to scroll to top -->
+    <button id="toTopBtn" aria-label="Scroll to top">&#8679;</button>
+
+    <!-- Project Modal -->
+    <div id="projectModal"
+        style="display:none; position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.7); align-items: center; justify-content: center; z-index:10002;">
+        <div role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+            style="background: white; border-radius: 12px; max-width: 500px; padding: 2em; box-shadow: 0 8px 30px rgba(0,0,0,0.3); position: relative;">
+            <h3 id="modalTitle" style="margin-top:0; color:#2980b9;"></h3>
+            <p id="modalContent" style="color:#333;"></p>
+            <button onclick="closeProjectModal()"
+                style="margin-top:1.5em; padding: 0.5em 1em; background: #2980b9; border:none; border-radius: 25px; color: white; cursor: pointer;">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Sticky header shrink on scroll
+        const header = document.getElementById('pageHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Show/hide toTopBtn
+            const toTopBtn = document.getElementById('toTopBtn');
+            if (window.scrollY > 300) {
+                toTopBtn.classList.add('show');
+            } else {
+                toTopBtn.classList.remove('show');
+            }
+        });
+
+        // Scroll reveal for sections
+        function revealSections() {
+            const sections = document.querySelectorAll('section');
+            const windowHeight = window.innerHeight;
+            sections.forEach(section => {
+                const top = section.getBoundingClientRect().top;
+                if (top < windowHeight - 100) {
+                    section.classList.add('reveal');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealSections);
+        window.addEventListener('load', revealSections);
+
+        // Scroll to top button functionality
+        document.getElementById('toTopBtn').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Project Modal Logic
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+
+        function openProjectModal(title, content) {
+            modalTitle.textContent = title;
+            modalContent.textContent = content;
+            modal.style.display = 'flex';
+            modal.focus();
+        }
+
+        function closeProjectModal() {
+            modal.style.display = 'none';
+        }
+
+        // Accessibility: close modal on ESC key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                closeProjectModal();
+            }
+        });
+
+        // Prevent modal clicks from closing modal unintentionally
+        modal.querySelector('div').addEventListener('click', e => e.stopPropagation());
+        modal.addEventListener('click', closeProjectModal);
+    </script>
 </body>
 
 </html>
