@@ -8,11 +8,12 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:700|Roboto:400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --blue: #6dd5ed;
-            --violet: #8f6ed5;
-            --pink: #ff84a2;
-            --glass-bg: rgba(255, 255, 255, 0.20);
-            --glass-border: rgba(255, 255, 255, 0.40);
+            --blue: #5a91bf;
+            --violet: #7a9eb1;
+            --teal: #6bc0bf;
+            --pink: #b8d8ba;
+            --glass-bg: rgba(232, 240, 242, 0.25);
+            --glass-border: rgba(232, 240, 242, 0.45);
         }
 
         * {
@@ -23,8 +24,8 @@
             min-height: 100vh;
             margin: 0;
             font-family: 'Roboto', Arial, sans-serif;
-            background: linear-gradient(120deg, var(--violet), var(--blue) 70%, var(--pink));
-            color: #262656;
+            background: linear-gradient(120deg, var(--teal), var(--blue) 70%, var(--violet));
+            color: #2e3b4e;
             overflow-x: hidden;
         }
 
@@ -33,7 +34,7 @@
             width: 100%;
             z-index: 100;
             background: linear-gradient(90deg, var(--violet) 70%, var(--blue));
-            box-shadow: 0 3px 16px rgba(135, 53, 212, 0.1);
+            box-shadow: 0 3px 16px rgba(120, 144, 156, 0.15);
             padding: 0;
         }
 
@@ -51,11 +52,11 @@
             font-size: 1.7em;
             font-weight: 700;
             letter-spacing: 2px;
-            color: #fff;
+            color: #d8e7e7;
         }
 
         nav a {
-            color: #fff;
+            color: #d8e7e7;
             text-decoration: none;
             font-weight: 600;
             margin-left: 2em;
@@ -64,7 +65,7 @@
         }
 
         nav a:hover {
-            color: var(--pink);
+            color: var(--teal);
         }
 
         main {
@@ -93,7 +94,7 @@
 
         h1 {
             font-size: 2.8em;
-            background: -webkit-linear-gradient(var(--violet), var(--pink));
+            background: -webkit-linear-gradient(var(--teal), var(--violet));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -101,12 +102,12 @@
 
         h2 {
             font-size: 1.6em;
-            color: var(--violet);
+            color: var(--teal);
         }
 
         .about-text {
             font-size: 1.1em;
-            color: #353575;
+            color: #3c506c;
             line-height: 1.7;
         }
 
@@ -120,7 +121,7 @@
             background: var(--glass-bg);
             border: 1.5px solid var(--glass-border);
             border-radius: 1.2em;
-            box-shadow: 0 4px 20px 0 rgba(31, 38, 135, 0.13);
+            box-shadow: 0 4px 20px 0 rgba(106, 149, 170, 0.18);
             padding: 2em 1.2em 1.7em 1.5em;
             transition: transform 0.27s, box-shadow 0.27s;
             position: relative;
@@ -130,18 +131,17 @@
 
         .card:hover {
             transform: translateY(-12px) scale(1.045);
-            box-shadow: 0 16px 24px 0 rgba(31, 38, 135, 0.22);
+            box-shadow: 0 16px 28px 0 rgba(106, 149, 170, 0.3);
         }
 
         .card h3 {
-            margin-top: 0;
-            color: var(--violet);
+            color: var(--teal);
             font-weight: 700;
             font-size: 1.1em;
         }
 
         .card p {
-            color: #555587;
+            color: #4a6274;
             min-height: 50px;
         }
 
@@ -149,18 +149,18 @@
             display: inline-block;
             margin-top: 1em;
             padding: 0.45em 1.3em;
-            background: linear-gradient(90deg, var(--blue), var(--pink));
+            background: linear-gradient(90deg, var(--blue), var(--teal));
             color: #fff;
             text-decoration: none;
             border-radius: 2em;
             font-size: 1em;
             font-weight: 600;
-            box-shadow: 0 2px 12px 0 rgba(41, 128, 185, 0.14);
+            box-shadow: 0 2px 12px 0 rgba(87, 154, 163, 0.14);
             transition: background 0.22s;
         }
 
         .card a:hover {
-            background: linear-gradient(90deg, var(--pink), var(--violet));
+            background: linear-gradient(90deg, var(--teal), var(--violet));
         }
 
         .contact-info {
@@ -175,21 +175,21 @@
             display: inline-flex;
             align-items: center;
             font-size: 1.1em;
-            color: var(--violet);
+            color: var(--teal);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.22s;
         }
 
         .contact-info a:hover {
-            color: var(--pink);
+            color: var(--violet);
         }
 
         .contact-info i {
             font-style: normal;
             margin-right: 0.6em;
             font-size: 1.2em;
-            background: linear-gradient(var(--pink), var(--violet));
+            background: linear-gradient(var(--violet), var(--teal));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -210,7 +210,7 @@
         footer {
             padding: 2em 1em 1em;
             text-align: center;
-            color: #fff;
+            color: #b8c1c9;
             background: none;
             font-size: 1.1em;
             opacity: 0.77;
