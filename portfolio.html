@@ -8,16 +8,20 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:700|Roboto:400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --black: #151515;
-            /* dark for grounding */
-            --off-black: #23272e;
-            /* slightly softened black */
-            --royal-blue: #4169E1;
-            /* rich royal blue */
-            --golden-yellow: #FFC857;
-            /* warm golden yellow */
-            --glass-bg: rgba(21, 21, 21, 0.25);
-            --glass-border: rgba(255, 200, 87, 0.3);
+            --black-dark: #121212;
+            /* Very dark black */
+            --black-medium: #1e1e1e;
+            /* Medium dark black */
+            --blue-dark: #0d3b66;
+            /* Deep, strong blue */
+            --blue-medium: #1e5f99;
+            /* Medium blue */
+            --blue-light: #4a90e2;
+            /* Light blue for accents */
+            --glass-bg: rgba(30, 30, 30, 0.25);
+            --glass-border: rgba(74, 144, 226, 0.4);
+            --text-color: #e1e7f0;
+            /* Light grayish blue for readability */
         }
 
         * {
@@ -28,8 +32,8 @@
             min-height: 100vh;
             margin: 0;
             font-family: 'Roboto', Arial, sans-serif;
-            background: linear-gradient(120deg, var(--black), var(--royal-blue) 80%, var(--golden-yellow));
-            color: var(--off-black);
+            background: linear-gradient(120deg, var(--black-dark), var(--blue-dark) 70%, var(--blue-medium));
+            color: var(--text-color);
             overflow-x: hidden;
         }
 
@@ -37,8 +41,8 @@
             position: fixed;
             width: 100%;
             z-index: 100;
-            background: linear-gradient(90deg, var(--black) 70%, var(--royal-blue));
-            box-shadow: 0 3px 16px rgba(65, 105, 225, 0.1);
+            background: linear-gradient(90deg, var(--black-medium) 70%, var(--blue-medium));
+            box-shadow: 0 3px 16px rgba(74, 144, 226, 0.1);
             padding: 0;
         }
 
@@ -56,11 +60,11 @@
             font-size: 1.7em;
             font-weight: 700;
             letter-spacing: 2px;
-            color: #fff;
+            color: var(--text-color);
         }
 
         nav a {
-            color: #fff;
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 600;
             margin-left: 2em;
@@ -69,7 +73,7 @@
         }
 
         nav a:hover {
-            color: var(--golden-yellow);
+            color: var(--blue-light);
         }
 
         main {
@@ -82,7 +86,7 @@
             background: var(--glass-bg);
             border: 1.5px solid var(--glass-border);
             border-radius: 1.5em;
-            box-shadow: 0 8px 32px 0 rgba(21, 21, 21, 0.11);
+            box-shadow: 0 8px 32px 0 rgba(30, 30, 30, 0.11);
             padding: 2.5em;
             margin: 2em 0;
             backdrop-filter: blur(10px);
@@ -98,7 +102,7 @@
 
         h1 {
             font-size: 2.8em;
-            background: -webkit-linear-gradient(var(--royal-blue), var(--golden-yellow));
+            background: -webkit-linear-gradient(var(--blue-medium), var(--blue-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -106,12 +110,12 @@
 
         h2 {
             font-size: 1.6em;
-            color: var(--royal-blue);
+            color: var(--blue-medium);
         }
 
         .about-text {
             font-size: 1.1em;
-            color: var(--off-black);
+            color: var(--text-color);
             line-height: 1.7;
         }
 
@@ -125,7 +129,7 @@
             background: var(--glass-bg);
             border: 1.5px solid var(--glass-border);
             border-radius: 1.2em;
-            box-shadow: 0 4px 20px 0 rgba(21, 21, 21, 0.13);
+            box-shadow: 0 4px 20px 0 rgba(30, 30, 30, 0.13);
             padding: 2em 1.2em 1.7em 1.5em;
             transition: transform 0.27s, box-shadow 0.27s;
             position: relative;
@@ -135,18 +139,18 @@
 
         .card:hover {
             transform: translateY(-12px) scale(1.045);
-            box-shadow: 0 16px 24px 0 rgba(21, 21, 21, 0.22);
+            box-shadow: 0 16px 24px 0 rgba(30, 30, 30, 0.22);
         }
 
         .card h3 {
             margin-top: 0;
-            color: var(--royal-blue);
+            color: var(--blue-medium);
             font-weight: 700;
             font-size: 1.1em;
         }
 
         .card p {
-            color: #555;
+            color: #b0b8cc;
             min-height: 50px;
         }
 
@@ -154,18 +158,18 @@
             display: inline-block;
             margin-top: 1em;
             padding: 0.45em 1.3em;
-            background: linear-gradient(90deg, var(--royal-blue), var(--golden-yellow));
-            color: #fff;
+            background: linear-gradient(90deg, var(--blue-medium), var(--blue-light));
+            color: var(--text-color);
             text-decoration: none;
             border-radius: 2em;
             font-size: 1em;
             font-weight: 600;
-            box-shadow: 0 2px 12px 0 rgba(255, 200, 87, 0.14);
+            box-shadow: 0 2px 12px 0 rgba(74, 144, 226, 0.14);
             transition: background 0.22s;
         }
 
         .card a:hover {
-            background: linear-gradient(90deg, var(--golden-yellow), var(--royal-blue));
+            background: linear-gradient(90deg, var(--blue-light), var(--blue-medium));
         }
 
         .contact-info {
@@ -180,21 +184,21 @@
             display: inline-flex;
             align-items: center;
             font-size: 1.1em;
-            color: var(--royal-blue);
+            color: var(--blue-medium);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.22s;
         }
 
         .contact-info a:hover {
-            color: var(--golden-yellow);
+            color: var(--blue-light);
         }
 
         .contact-info i {
             font-style: normal;
             margin-right: 0.6em;
             font-size: 1.2em;
-            background: linear-gradient(var(--golden-yellow), var(--royal-blue));
+            background: linear-gradient(var(--blue-light), var(--blue-medium));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -215,7 +219,7 @@
         footer {
             padding: 2em 1em 1em;
             text-align: center;
-            color: #fff;
+            color: var(--text-color);
             background: none;
             font-size: 1.1em;
             opacity: 0.77;
