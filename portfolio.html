@@ -303,7 +303,53 @@
         &copy; 2025 Tyron Sicio — Crafted with curiosity and caffeine.
     </footer>
 
+    <style>
+        .cursor-trail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 25px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.7);
+            transition: width 0.2s ease, height 0.2s ease;
+            z-index: 9999;
+            mix-blend-mode: difference;
+        }
+    </style>
+
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cursor = document.createElement('div');
+            cursor.classList.add('cursor-trail');
+            document.body.appendChild(cursor);
+
+            document.addEventListener('mousemove', e => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            // Optional: cursor grows when hovering links, buttons, or cards
+            const links = document.querySelectorAll('a, button, .card');
+            links.forEach(elem => {
+                elem.addEventListener('mouseenter', () => {
+                    cursor.style.width = '40px';
+                    cursor.style.height = '40px';
+                    cursor.style.background = 'rgba(255, 255, 255, 0.95)';
+                    cursor.style.boxShadow = '0 0 15px 8px rgba(255, 255, 255, 0.9)';
+                });
+                elem.addEventListener('mouseleave', () => {
+                    cursor.style.width = '25px';
+                    cursor.style.height = '25px';
+                    cursor.style.background = 'rgba(255, 255, 255, 0.8)';
+                    cursor.style.boxShadow = '0 0 8px 4px rgba(255, 255, 255, 0.7)';
+                });
+            });
+        });
+
         // Simple scrollreveal
         function revealOnScroll() {
             document.querySelectorAll('.from-bottom').forEach(function (element) {
