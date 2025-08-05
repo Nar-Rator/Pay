@@ -2,326 +2,319 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tyron P. Sicio Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyron Sicio | Interactive Portfolio</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:700|Roboto:400&display=swap" rel="stylesheet">
     <style>
-        /* Base Reset */
+        :root {
+            --blue: #6dd5ed;
+            --violet: #8f6ed5;
+            --pink: #ff84a2;
+            --glass-bg: rgba(255, 255, 255, 0.20);
+            --glass-border: rgba(255, 255, 255, 0.40);
+        }
+
         * {
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
-        text body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        body {
+            min-height: 100vh;
             margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #2980b9, #6dd5fa, #ffffff);
-            color: #222;
-            line-height: 1.6;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(120deg, var(--violet), var(--blue) 70%, var(--pink));
+            color: #262656;
+            overflow-x: hidden;
         }
 
-        /* Sticky Header */
         header {
-            background: rgba(33, 33, 33, 0.9);
-            color: white;
-            padding: 1em 2em;
-            position: sticky;
-            top: 0;
-            font-size: 2em;
-            font-weight: 700;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-            z-index: 1000;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background: linear-gradient(90deg, var(--violet) 70%, var(--blue));
+            box-shadow: 0 3px 16px rgba(135, 53, 212, 0.1);
+            padding: 0;
         }
 
-        header.scrolled {
-            background: #222;
-            font-size: 1.8em;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1110px;
+            margin: 0 auto;
+            padding: 1.6em 1em;
+        }
+
+        .logo {
+            font-family: 'Quicksand', Arial, sans-serif;
+            font-size: 1.7em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 2em;
+            transition: color 0.25s;
+            font-size: 1.05em;
+        }
+
+        nav a:hover {
+            color: var(--pink);
         }
 
         main {
-            max-width: 960px;
-            margin: 3em auto 5em;
-            background: white;
-            padding: 2.5em 3em;
-            border-radius: 12px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            padding: 6em 1em 3em;
+            max-width: 1110px;
         }
 
-        section {
-            margin-bottom: 3em;
+        .glass {
+            background: var(--glass-bg);
+            border: 1.5px solid var(--glass-border);
+            border-radius: 1.5em;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.09);
+            padding: 2.5em;
+            margin: 2em 0;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        h1,
+        h2 {
+            font-family: 'Quicksand', Arial, sans-serif;
+            margin-top: 0.15em;
+            margin-bottom: 0.6em;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            background: -webkit-linear-gradient(var(--violet), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            color: var(--violet);
+        }
+
+        .about-text {
+            font-size: 1.1em;
+            color: #353575;
+            line-height: 1.7;
+        }
+
+        .projects {
+            display: grid;
+            gap: 2em;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        }
+
+        .card {
+            background: var(--glass-bg);
+            border: 1.5px solid var(--glass-border);
+            border-radius: 1.2em;
+            box-shadow: 0 4px 20px 0 rgba(31, 38, 135, 0.13);
+            padding: 2em 1.2em 1.7em 1.5em;
+            transition: transform 0.27s, box-shadow 0.27s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.045);
+            box-shadow: 0 16px 24px 0 rgba(31, 38, 135, 0.22);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--violet);
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .card p {
+            color: #555587;
+            min-height: 50px;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 1em;
+            padding: 0.45em 1.3em;
+            background: linear-gradient(90deg, var(--blue), var(--pink));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 2em;
+            font-size: 1em;
+            font-weight: 600;
+            box-shadow: 0 2px 12px 0 rgba(41, 128, 185, 0.14);
+            transition: background 0.22s;
+        }
+
+        .card a:hover {
+            background: linear-gradient(90deg, var(--pink), var(--violet));
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            align-items: center;
+        }
+
+        .contact-info a,
+        .contact-info span {
+            display: inline-flex;
+            align-items: center;
+            font-size: 1.1em;
+            color: var(--violet);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.22s;
+        }
+
+        .contact-info a:hover {
+            color: var(--pink);
+        }
+
+        .contact-info i {
+            font-style: normal;
+            margin-right: 0.6em;
+            font-size: 1.2em;
+            background: linear-gradient(var(--pink), var(--violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Custom scroll animation */
+        .from-bottom {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease-out;
+            transform: translateY(60px);
+            transition: opacity .9s cubic-bezier(.17, .67, .83, .67), transform .9s cubic-bezier(.17, .67, .83, .67);
         }
 
-        section.reveal {
+        .from-bottom.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        h2 {
-            border-bottom: 3px solid #2980b9;
-            padding-bottom: 0.5em;
-            margin-bottom: 1em;
-            font-weight: 700;
-            color: #2980b9;
-            letter-spacing: 1px;
-        }
-
-        /* About Me */
-        #about p {
-            font-size: 1.1em;
-            color: #444;
-        }
-
-        /* Projects */
-        .projects {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.8em;
-            justify-content: center;
-        }
-
-        .project {
-            background: #f0f8ff;
-            padding: 1.8em;
-            border-radius: 12px;
-            flex: 1 1 45%;
-            box-shadow: 0 10px 20px rgba(41, 128, 185, 0.15);
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project:hover {
-            transform: scale(1.05);
-            box-shadow: 0 16px 40px rgba(41, 128, 185, 0.3);
-        }
-
-        .project h3 {
-            margin-top: 0;
-            color: #2471a3;
-        }
-
-        .project p {
-            color: #555;
-            margin-bottom: 1.3em;
-        }
-
-        .project a {
-            display: inline-block;
-            padding: 0.5em 1.3em;
-            border-radius: 25px;
-            background: #2980b9;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 8px 15px rgba(41, 128, 185, 0.3);
-            transition: background-color 0.3s ease;
-        }
-
-        .project a:hover {
-            background-color: #1a5276;
-        }
-
-        /* Contact */
-        #contact p {
-            font-size: 1.1em;
-            margin: 0.8em 0;
-        }
-
-        #contact a {
-            color: #2980b9;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        #contact a:hover {
-            color: #1a5276;
-            text-decoration: underline;
-        }
-
-        /* Footer */
         footer {
+            padding: 2em 1em 1em;
             text-align: center;
-            padding: 1.5em 0;
-            background: #222;
-            color: white;
-            font-size: 0.95em;
-            margin-top: 4em;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            background: none;
+            font-size: 1.1em;
+            opacity: 0.77;
+            margin-top: 3em;
         }
 
-        /* Responsive */
-        @media (max-width: 720px) {
-            .projects {
-                flex-direction: column;
-                gap: 1.5em;
+        /* Responsive adjustments */
+        @media (max-width: 620px) {
+            .logo {
+                font-size: 1.15em;
             }
 
-            .project {
-                flex: 1 1 100%;
+            nav a {
+                margin-left: 1em;
+                font-size: 1em;
             }
 
             main {
-                padding: 2em 1.5em;
-                margin: 2em auto 4em;
+                padding: 6em 0.5em 2em;
             }
-        }
 
-        /* Button to top */
-        #toTopBtn {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            background-color: #2980b9;
-            color: white;
-            border: none;
-            padding: 0.75em 1.1em;
-            border-radius: 50px;
-            font-size: 1em;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(41, 128, 185, 0.3);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 10001;
-        }
+            .glass {
+                padding: 1.2em;
+            }
 
-        #toTopBtn.show {
-            opacity: 1;
+            .projects {
+                gap: 1.1em;
+            }
         }
     </style>
 </head>
 
 <body>
-    text
-    <header id="pageHeader">
-        Tyron P. Sicio Portfolio
+    <header>
+        <nav>
+            <span class="logo">Tyron Sicio</span>
+            <div>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
     </header>
 
     <main>
-        <section id="about" class="reveal">
-            <h2>About Me</h2>
-            <p>Hello! I'm Tyron P. Sicio, a passionate web developer focused on creating beautiful and functional
-                websites. Welcome to my portfolio!</p>
+        <section class="glass from-bottom" id="about">
+            <h1>Welcome!</h1>
+            <div class="about-text">
+                Hi, I'm <b>Tyron P. Sicio</b>, a creative web developer eager to turn ideas into interactive, delightful
+                web experiences.<br>
+                I design and build with a blend of logic, innovation, and a passion for visual storytelling.
+            </div>
         </section>
 
-        <section id="projects" class="reveal">
-            <h2>Projects</h2>
+        <section class="glass from-bottom" id="projects">
+            <h2>Portfolio Projects</h2>
             <div class="projects">
-                <div class="project" tabindex="0"
-                    onclick="openProjectModal('Project One', 'Wala pa akong malalagay dito. Please wait.')"
-                    onkeypress="if(event.key === 'Enter') openProjectModal('Project One', 'Wala pa akong malalagay dito. Please wait.')">
-                    <h3>Project One</h3>
-                    <p>Wala pa akong malalagay dito wait ka muna.</p>
-                    <a href="#" onclick="event.stopPropagation(); alert('Project page coming soon!');">View Project</a>
+                <div class="card">
+                    <h3>FraudBuster Extension</h3>
+                    <p>A browser extension that leverages NLP and machine learning to identify and block online job
+                        scams in real time.</p>
+                    <a href="#">See Project</a>
                 </div>
-                <div class="project" tabindex="0" onclick="openProjectModal('Project Two', 'wala pa ngng number 1 eh.')"
-                    onkeypress="if(event.key === 'Enter') openProjectModal('Project Two', 'wala pa ngng number 1 eh.')">
-                    <h3>Project Two</h3>
-                    <p>wala pa ngng number 1 eh.</p>
-                    <a href="#" onclick="event.stopPropagation(); alert('Project page coming soon!');">View Project</a>
+                <div class="card">
+                    <h3>Academic Thesis Tool</h3>
+                    <p>A platform to streamline RAD-method-driven academic writing, focusing on clarity and workflow for
+                        researchers and students.</p>
+                    <a href="#">See Project</a>
+                </div>
+                <div class="card">
+                    <h3>Your Next Project</h3>
+                    <p>Imagine new ideas here! Expand your portfolio with creative and interactive web projects—make it
+                        your own!</p>
+                    <a href="#">Learn More</a>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="reveal">
+        <section class="glass from-bottom" id="contact">
             <h2>Contact Me</h2>
-            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank"
-                    rel="noopener noreferrer">linkedin.com/in/yourprofile</a></p>
+            <div class="contact-info">
+                <a href="mailto:your.email@example.com"><i>&#9993;</i>your.email@example.com</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"
+                    rel="noopener noreferrer"><i>&#128279;</i>LinkedIn</a>
+            </div>
         </section>
     </main>
 
     <footer>
-        &copy; 2025 Tyron Sicio
+        &copy; 2025 Tyron Sicio — Crafted with curiosity and caffeine.
     </footer>
 
-    <!-- Button to scroll to top -->
-    <button id="toTopBtn" aria-label="Scroll to top">&#8679;</button>
-
-    <!-- Project Modal -->
-    <div id="projectModal"
-        style="display:none; position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.7); align-items: center; justify-content: center; z-index:10002;">
-        <div role="dialog" aria-modal="true" aria-labelledby="modalTitle"
-            style="background: white; border-radius: 12px; max-width: 500px; padding: 2em; box-shadow: 0 8px 30px rgba(0,0,0,0.3); position: relative;">
-            <h3 id="modalTitle" style="margin-top:0; color:#2980b9;"></h3>
-            <p id="modalContent" style="color:#333;"></p>
-            <button onclick="closeProjectModal()"
-                style="margin-top:1.5em; padding: 0.5em 1em; background: #2980b9; border:none; border-radius: 25px; color: white; cursor: pointer;">Close</button>
-        </div>
-    </div>
-
     <script>
-        // Sticky header shrink on scroll
-        const header = document.getElementById('pageHeader');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-
-            // Show/hide toTopBtn
-            const toTopBtn = document.getElementById('toTopBtn');
-            if (window.scrollY > 300) {
-                toTopBtn.classList.add('show');
-            } else {
-                toTopBtn.classList.remove('show');
-            }
-        });
-
-        // Scroll reveal for sections
-        function revealSections() {
-            const sections = document.querySelectorAll('section');
-            const windowHeight = window.innerHeight;
-            sections.forEach(section => {
-                const top = section.getBoundingClientRect().top;
-                if (top < windowHeight - 100) {
-                    section.classList.add('reveal');
+        // Simple scrollreveal
+        function revealOnScroll() {
+            document.querySelectorAll('.from-bottom').forEach(function (element) {
+                var distFromTop = element.getBoundingClientRect().top;
+                if (distFromTop < window.innerHeight - 60) {
+                    element.classList.add('visible');
                 }
             });
         }
-        window.addEventListener('scroll', revealSections);
-        window.addEventListener('load', revealSections);
-
-        // Scroll to top button functionality
-        document.getElementById('toTopBtn').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Project Modal Logic
-        const modal = document.getElementById('projectModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalContent = document.getElementById('modalContent');
-
-        function openProjectModal(title, content) {
-            modalTitle.textContent = title;
-            modalContent.textContent = content;
-            modal.style.display = 'flex';
-            modal.focus();
-        }
-
-        function closeProjectModal() {
-            modal.style.display = 'none';
-        }
-
-        // Accessibility: close modal on ESC key
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.style.display === 'flex') {
-                closeProjectModal();
-            }
-        });
-
-        // Prevent modal clicks from closing modal unintentionally
-        modal.querySelector('div').addEventListener('click', e => e.stopPropagation());
-        modal.addEventListener('click', closeProjectModal);
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
     </script>
 </body>
 
