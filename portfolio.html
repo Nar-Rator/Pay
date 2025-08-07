@@ -248,9 +248,40 @@
             .projects {
                 gap: 1.1em;
             }
+
+            /*cards */
+
+            .card {
+                background: var(--blue-dark);
+                /* solid non-transparent */
+                border: 1.5px solid var(--blue-medium);
+                color: var(--text-color);
+                /* keep your other styles */
+            }
+
+            .swiper {
+                width: 100%;
+                padding: 2em 0;
+            }
+
+            .swiper-slide {
+                width: 300px;
+                /* fixed width for cards */
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: grab;
+            }
+
+
         }
     </style>
 </head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
 
 <body>
     <header>
@@ -277,24 +308,32 @@
         <section class="glass from-bottom" id="projects">
             <h2>Portfolio Projects</h2>
             <div class="projects">
-                <div class="card">
-                    <h3>FraudBuster Extension</h3>
-                    <p>A browser extension that leverages NLP and machine learning to identify and block online job
-                        scams in real time.</p>
-                    <a href="#">See Project</a>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide card">
+                            <h3>FraudBuster Extension</h3>
+                            <p>A browser extension that leverages NLP and machine learning to identify and block online
+                                job scams in real time.</p>
+                            <a href="fraudbuster.html">See Project</a>
+                        </div>
+                        <div class="swiper-slide card">
+                            <h3>Academic Thesis Tool</h3>
+                            <p>A platform to streamline RAD-method-driven academic writing, focusing on clarity and
+                                workflow for researchers and students.</p>
+                            <a href="#">See Project</a>
+                        </div>
+                        <div class="swiper-slide card">
+                            <h3>Your Next Project</h3>
+                            <p>Imagine new ideas here! Expand your portfolio with creative and interactive web
+                                projects—make it your own!</p>
+                            <a href="#">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Optional pagination dots -->
+                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="card">
-                    <h3>Academic Thesis Tool</h3>
-                    <p>A platform to streamline RAD-method-driven academic writing, focusing on clarity and workflow for
-                        researchers and students.</p>
-                    <a href="#">See Project</a>
-                </div>
-                <div class="card">
-                    <h3>Your Next Project</h3>
-                    <p>Imagine new ideas here! Expand your portfolio with creative and interactive web projects—make it
-                        your own!</p>
-                    <a href="#">Learn More</a>
-                </div>
+
             </div>
         </section>
 
@@ -321,6 +360,21 @@
 
     <script>
 
+        const swiper = new Swiper('.mySwiper', {
+            loop: true,
+            slidesPerView: 'auto', // shows multiple cards if space available
+            spaceBetween: 20,
+            centeredSlides: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            grabCursor: true,
+        });
 
         // Simple scrollreveal
         function revealOnScroll() {
